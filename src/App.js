@@ -8,9 +8,11 @@ function App() {
   useEffect (() => {
     if(progressValue < 100 && progressValue > 0)
     {
-      setTimeout(() => {
+      let timerId = setTimeout(() => {
         setProgressValue(progressValue+10);
       }, 100)
+
+      return () => clearTimeout(timerId);
     }
   },[progressValue])
 
