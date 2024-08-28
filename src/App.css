@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+.progressBar{
+  background-color: blue;
+  color: blue;
+}
+
+/* .progressBarBlue{
+  background-color: blue;
+  width: 50%;
+  border: 1px solid black;
+} */
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

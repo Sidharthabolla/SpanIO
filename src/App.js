@@ -1,23 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [progressValue, setProgressValue] = useState(0)
+
+  useEffect (() => {
+    if(progressValue < 100 && progressValue > 0)
+    {
+      setTimeout(() => {
+        setProgressValue(progressValue+10);
+      }, 100)
+    }
+  },[progressValue])
+
+  const handleClick = () => {
+    if(progressValue<100){
+      setProgressValue(progressValue+10)
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <button onClick={() => handleClick()}> Start Count</button>
+      </div>
+      <div>
+        {true && (
+          <div className='progressBar' style = {{'width': progressValue+'%'}}>
+            {progressValue}%
+          </div>
+        ) }
+      </div>
     </div>
   );
 }
